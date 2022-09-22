@@ -1,8 +1,8 @@
 class Story {
 
-  final String storyTitle = "";
-  final int choice1 = 0;
-  final int choice2 = 0;
+  final String storyTitle;
+  final String choice1;
+  final String choice2;
 
-  Story (storyTitle, choice1, choice2);
+  Story (this.storyTitle, this.choice1, this.choice2);
 }

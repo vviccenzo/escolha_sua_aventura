@@ -33,10 +33,26 @@ class StoryBrain {
 
   int _currentStory = 0;
 
-  void nextStory(int choiceUser) {
-    if(_storyNumber < _storyData.length -1) {
-      _storyNumber++;
-    } else if(_storyNumber > 2 ) {
+  void nextStory(int choice) {
+    if (_storyNumber == 0) {
+      if (choice == 1) {
+        _storyNumber = 2;
+      } else {
+        _storyNumber = 1;
+      }
+    } else if (_storyNumber == 1) {
+      if (choice == 1) {
+        _storyNumber = 2;
+      } else {
+        _storyNumber = 3;
+      }
+    } else if (_storyNumber == 2) {
+      if (choice == 1) {
+        _storyNumber = 5;
+      } else {
+        _storyNumber = 4;
+      }
+    } else {
       restart();
     }
   }
@@ -49,16 +65,16 @@ class StoryBrain {
     return _storyData[_storyNumber].storyTitle;
   }
 
-  int getChoice1() {
+  String getChoice1() {
     return _storyData[_currentStory].choice1;
   }
 
-  int getChoice2() {
+  String getChoice2() {
     return _storyData[_currentStory].choice2;
   }
 
   bool isChoice2Avaliable() {
-    if(getChoice2() < 3) {
+    if(_storyNumber < 3) {
       return true;
     } else {
       return false;
